@@ -7,7 +7,7 @@
     <Authors>Benjamin Okkema</Authors>
     <Company>Okkema Labs</Company>
     <PackageDescription>Okkema Labs Cache Utilities</PackageDescription>
-    <RepositoryUrl>https://github.com/cptchloroplast/movies</RepositoryUrl>
+    <RepositoryUrl>https://github.com/okkema/dotnet</RepositoryUrl>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
