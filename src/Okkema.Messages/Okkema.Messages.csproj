@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <PackageId>Okkema.Messages</PackageId>
+    <Version>0.1.1</Version>
+    <Authors>Benjamin Okkema</Authors>
+    <Company>Okkema Labs</Company>
+    <PackageDescription>Okkema Labs Message Utilities</PackageDescription>
+    <RepositoryUrl>https://github.com/okkema/dotnet</RepositoryUrl>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Okkema.Queue\Okkema.Queue.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.*" />
+  </ItemGroup>
+
+</Project>
