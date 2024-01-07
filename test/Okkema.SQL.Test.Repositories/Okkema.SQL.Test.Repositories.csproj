@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="appsettings.json" CopyToOutputDirectory="Always" Pack="true" PackagePath="\" />
+    <None Include="appsettings.json" CopyToOutputDirectory="Always" CopyToPublishDirectory="always" IncludeInPackage="true" Pack="true" PackagePath="\" />
     <None Include="README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
