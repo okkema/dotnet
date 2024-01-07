@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageId>Okkema.Test</PackageId>
+    <PackageId>Okkema.SQL.Test.Repositories</PackageId>
     <Version>0.1.0</Version>
     <Authors>Benjamin Okkema</Authors>
     <Company>Okkema Labs</Company>
-    <PackageDescription>Okkema Labs Test Utilities</PackageDescription>
+    <PackageDescription>Okkema Labs Test SQL Repositories</PackageDescription>
     <RepositoryUrl>https://github.com/okkema/dotnet</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -14,14 +14,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoFixture" Version="4.*" />
-    <PackageReference Include="AutoFixture.Xunit2" Version="4.*" />
-    <PackageReference Include="FluentAssertions" Version="6.*" />
-    <PackageReference Include="Moq" Version="4.*" />
-    <PackageReference Include="Moq.Contrib.HttpClient" Version="1.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.*" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Okkema.Test\Okkema.Test.csproj" />
+    <ProjectReference Include="..\..\src\Okkema.SQL\Okkema.SQL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.json" CopyToOutputDirectory="Always" />
     <None Include="README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 

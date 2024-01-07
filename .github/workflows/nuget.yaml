@@ -21,12 +21,12 @@ jobs:
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Build solution
-        run: dotnet build
+        run: dotnet build --configuration Release
       - name: Test solution
-        run: dotnet test
+        run: dotnet test --configuration Release --no-build
       - name: Package release
-        run: dotnet pack --configuration Release
+        run: dotnet pack --configuration Release --no-build
       - name: Publish release
-        run: dotnet nuget push src/**/bin/Release/*.nupkg --skip-duplicate
+        run: dotnet nuget push */bin/Release/*.nupkg --skip-duplicate
       
      

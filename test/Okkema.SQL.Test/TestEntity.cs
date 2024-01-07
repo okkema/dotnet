@@ -1,5 +1,5 @@
 using Okkema.SQL.Entities;
-namespace Okkema.SQL.Test.Repositories;
+namespace Okkema.SQL.Test;
 public record TestEntity : EntityBase
 {
   public int Integer { get; set; }

@@ -5,7 +5,7 @@ using Okkema.SQL.Extensions;
 using Okkema.SQL.Factories;
 using Okkema.SQL.Options;
 using Okkema.SQL.Repositories;
-namespace Okkema.SQL.Test.Repositories;
+namespace Okkema.SQL.Test;
 public class TestEntityRepository : RepositoryBase<TestEntity>
 {
   public TestEntityRepository(

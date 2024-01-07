@@ -2,7 +2,8 @@ using Okkema.SQL.Repositories;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System.Reflection;
-namespace Okkema.SQL.Test.Repositories;
+using Okkema.SQL.Test.Repositories;
+namespace Okkema.SQL.Test;
 public class TestEntityRepositoryTest : RepositoryBaseTest<TestEntity>
 {
     private readonly TestEntityRepository _repo;

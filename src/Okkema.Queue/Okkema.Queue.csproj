@@ -8,6 +8,7 @@
     <Company>Okkema Labs</Company>
     <PackageDescription>Okkema Labs Queue Utilities</PackageDescription>
     <RepositoryUrl>https://github.com/okkema/dotnet</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -16,6 +17,10 @@
     <PackageReference Include="System.Threading.Channels" Version="8.*" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.*" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
