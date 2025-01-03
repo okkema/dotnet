@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>Okkema.SQL.Test.Repositories</PackageId>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
     <Authors>Benjamin Okkema</Authors>
     <Company>Okkema Labs</Company>
     <PackageDescription>Okkema Labs Test SQL Repositories</PackageDescription>
@@ -23,7 +23,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="appsettings.json" CopyToOutputDirectory="always" CopyToPublishDirectory="always" IncludeInPackage="true" Pack="true" PackagePath="\" PackageCopyToOutput="true" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+      <IncludeInPackage>true</IncludeInPackage>
+      <Pack>true</Pack>
+      <PackagePath>;</PackagePath>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
     <None Include="README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
