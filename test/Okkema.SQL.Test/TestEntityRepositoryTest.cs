@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using System.Reflection;
 using Okkema.SQL.Test.Repositories;
+using Xunit;
 namespace Okkema.SQL.Test;
 public class TestEntityRepositoryTest : RepositoryBaseTest<TestEntity>
 {
@@ -14,4 +15,7 @@ public class TestEntityRepositoryTest : RepositoryBaseTest<TestEntity>
         _logger = Mock.Of<ILogger<TestEntityRepository>>();
         _repo = new TestEntityRepository(_logger, _factory, _options);
     }
+
+    [Fact]
+    public void Trigger() {}
 }

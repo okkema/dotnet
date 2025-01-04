@@ -25,7 +25,9 @@ public abstract class RepositoryBaseTest<T> : IDisposable
     public RepositoryBaseTest(Assembly[] assemblies)
     {
         var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json")
+            .AddInMemoryCollection(new Dictionary<string, string?>{
+                {$"{nameof(DbConnectionOptions)}:ConnectionString", "Data Source=Test;Mode=Memory;Cache=Shared"}
+            })
             .Build();
         var serviceProvider = new ServiceCollection()
             .AddSQLite(configuration)
