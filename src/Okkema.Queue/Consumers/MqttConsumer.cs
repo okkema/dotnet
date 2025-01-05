@@ -21,6 +21,7 @@ public class MqttConsumer<T> : IConsumer<T>
         mqttClient.ApplicationMessageReceivedAsync += async e =>
         {
             var payload = JsonSerializer.Deserialize<T>(e.ApplicationMessage.ConvertPayloadToString());
+            if (payload == null) throw new ArgumentNullException("Unable to deserialize MQTT Application Message");
             await callback(payload, cancellationToken);
         };
         await mqttClient.ConnectAsync(mqttClientOptions, cancellationToken);
