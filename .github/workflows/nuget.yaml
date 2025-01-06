@@ -27,6 +27,7 @@ jobs:
       - name: Package release
         run: dotnet pack --configuration Release --no-build
       - name: Publish release
+        if: github.ref == 'refs/heads/main'
         run: dotnet nuget push **/bin/Release/*.nupkg --skip-duplicate
       
      
