@@ -1,4 +1,5 @@
 using MQTTnet;
+using Okkema.Queue.Extensions;
 using Okkema.Queue.Options;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
@@ -21,11 +22,14 @@ public class MqttConsumer<T> : IConsumer<T>
         mqttClient.ApplicationMessageReceivedAsync += async e =>
         {
             var payload = JsonSerializer.Deserialize<T>(e.ApplicationMessage.ConvertPayloadToString());
-            if (payload == null) throw new ArgumentNullException("Unable to deserialize MQTT Application Message");
+            if (payload == null) throw new ArgumentException("Unable to deserialize MQTT Application Message");
             await callback(payload, cancellationToken);
         };
         await mqttClient.ConnectAsync(mqttClientOptions, cancellationToken);
-        var mqttSubscribeOptions = mqttFactory.CreateSubscribeOptionsBuilder().WithTopicFilter("test").Build();
+        var mqttSubscribeOptions = mqttFactory
+            .CreateSubscribeOptionsBuilder()
+            .WithTopicFilter(_options.CurrentValue.GetMessageTopic<T>())
+            .Build();
         await mqttClient.SubscribeAsync(mqttSubscribeOptions, cancellationToken);
         await Task.Delay(Timeout.Infinite, cancellationToken); // Wait until cancelled to shutdown gracefully
     }

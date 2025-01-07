@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Microsoft.Extensions.Options;
 using MQTTnet;
+using Okkema.Queue.Extensions;
 using Okkema.Queue.Options;
 
 namespace Okkema.Queue.Producers;
@@ -20,7 +21,7 @@ public class MqttProducer<T> : IProducer<T>
             .Build();
         await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
         var applicationMessage = new MqttApplicationMessageBuilder()
-            .WithTopic("test")
+            .WithTopic(_options.CurrentValue.GetMessageTopic<T>())
             .WithPayload(JsonSerializer.Serialize(value))
             .Build();
         await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
