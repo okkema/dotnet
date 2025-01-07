@@ -1,5 +1,5 @@
 ﻿namespace Okkema.Test;
-public class MockData
+public record MockData
 {
     public int Integer { get; set; }
     public float Float { get; set; }

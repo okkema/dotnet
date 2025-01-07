@@ -16,11 +16,7 @@ public abstract class MessageHandlerBase<T> : BackgroundService, IMessageHandler
     }
     protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {
-        while (!cancellationToken.IsCancellationRequested)
-        {
-            await _consumer.ReadAsync(HandleAsync, cancellationToken);
-        }
+        await _consumer.ReadAsync(HandleAsync, cancellationToken);
     }
     public abstract Task HandleAsync(T message, CancellationToken cancellationToken = default);
-    
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>Okkema.Messages</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <Authors>Benjamin Okkema</Authors>
     <Company>Okkema Labs</Company>
     <PackageDescription>Okkema Labs Message Utilities</PackageDescription>
