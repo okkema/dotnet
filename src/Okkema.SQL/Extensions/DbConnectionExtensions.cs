@@ -40,23 +40,24 @@ public static class DbConnectionExtensions
       for (int index = 0, total = reader.FieldCount; index < total; index++)
       {
         var name = reader.GetName(index);
-        var property = typeof(T).GetProperty(name);
+        var property = typeof(U).GetProperty(name);
         if (property is null) break;
         var value = reader.GetValue(index);
-        if (value is not null) break;
-        var propertyType = property.PropertyType;
-        value = propertyType switch 
-        {
-          Type when propertyType == typeof(string) => value!.ToString(),
-          Type when propertyType == typeof(int) => Convert.ToInt32(value),
-          Type when propertyType == typeof(long) => Convert.ToInt64(value),
-          Type when propertyType == typeof(float) => (float)Convert.ToDouble(value),
-          Type when propertyType == typeof(double) => Convert.ToDouble(value),
-          Type when propertyType == typeof(decimal) => Convert.ToDecimal(value),
-          Type when propertyType == typeof(DateTime) => DateTime.Parse(value!.ToString()!),
-          Type when propertyType == typeof(Guid) => Guid.Parse(value!.ToString()!),
-          _ => value,
-        };
+        if (value is not null) {
+            var propertyType = property.PropertyType;
+            value = propertyType switch 
+            {
+            Type when propertyType == typeof(string) => value!.ToString(),
+            Type when propertyType == typeof(int) => Convert.ToInt32(value),
+            Type when propertyType == typeof(long) => Convert.ToInt64(value),
+            Type when propertyType == typeof(float) => (float)Convert.ToDouble(value),
+            Type when propertyType == typeof(double) => Convert.ToDouble(value),
+            Type when propertyType == typeof(decimal) => Convert.ToDecimal(value),
+            Type when propertyType == typeof(DateTime) => DateTime.Parse(value!.ToString()!),
+            Type when propertyType == typeof(Guid) => Guid.Parse(value!.ToString()!),
+            _ => value,
+            };
+        }
         property.SetValue(record, value);
       }
       result.Add(record);
