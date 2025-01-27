@@ -47,9 +47,14 @@ public static class DbConnectionExtensions
         var propertyType = property.PropertyType;
         value = propertyType switch 
         {
-          Type _ when propertyType == typeof(int) => Convert.ToInt32(value),
-          Type _ when propertyType == typeof(DateTime) => DateTime.Parse(value!.ToString()!),
-          Type _ when propertyType == typeof(Guid) => Guid.Parse(value!.ToString()!),
+          Type when propertyType == typeof(string) => value!.ToString(),
+          Type when propertyType == typeof(int) => Convert.ToInt32(value),
+          Type when propertyType == typeof(long) => Convert.ToInt64(value),
+          Type when propertyType == typeof(float) => (float)Convert.ToDouble(value),
+          Type when propertyType == typeof(double) => Convert.ToDouble(value),
+          Type when propertyType == typeof(decimal) => Convert.ToDecimal(value),
+          Type when propertyType == typeof(DateTime) => DateTime.Parse(value!.ToString()!),
+          Type when propertyType == typeof(Guid) => Guid.Parse(value!.ToString()!),
           _ => value,
         };
         property.SetValue(record, value);

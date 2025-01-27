@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>Okkema.SQL</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>Benjamin Okkema</Authors>
     <Company>Okkema Labs</Company>
     <PackageDescription>Okkema Labs SQL Utilities</PackageDescription>
