@@ -10,24 +10,11 @@ concurrency: nuget
 jobs:
   nuget:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v3
+      - name: Build, test, and publish packages
+        uses: okkema/actions/dotnet-publish@v2
         with:
-          dotnet-version: 8.x
-          source-url: https://nuget.pkg.github.com/okkema/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Build solution
-        run: dotnet build --configuration Release
-      - name: Test solution
-        run: dotnet test --configuration Release --no-build
-      - name: Package release
-        run: dotnet pack --configuration Release --no-build
-      - name: Publish release
-        if: github.ref == 'refs/heads/main'
-        run: dotnet nuget push **/bin/Release/*.nupkg --skip-duplicate
-      
-     
+          nuget-token: ${{ secrets.GITHUB_TOKEN }}
